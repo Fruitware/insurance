@@ -2,7 +2,7 @@
 
 namespace Fruitware\Insurance\Casco;
 
-use Fruitware\Insurance\Casco\Type\AutoTurismType;
+use Fruitware\Insurance\Casco\Type\AutoturismType;
 use Fruitware\Insurance\Model\Casco\Casco as BaseCasco;
 
 class Casco extends BaseCasco
@@ -20,8 +20,8 @@ class Casco extends BaseCasco
         $this->config = $config;
     }
 
-    public function getAutoTurismType()
+    public function getAutoturismType()
     {
-        return new AutoTurismType();
+        return new AutoturismType();
     }
 }
