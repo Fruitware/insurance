@@ -12,6 +12,9 @@
   "require": {
     "php": ">=5.3.3"
   },
+  "autoload": {
+    "psr-0": { "Fruitware\\Insurance\\": "src/" }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true
 }
