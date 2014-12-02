@@ -4,7 +4,7 @@ namespace Fruitware\Insurance\Casco\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
-class AutoTurismType2 implements TypeInterface
+class AutoTurismType implements TypeInterface
 {
     /**
      * @var array
