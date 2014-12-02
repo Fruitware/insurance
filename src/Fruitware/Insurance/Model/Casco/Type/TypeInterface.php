@@ -5,6 +5,11 @@ namespace Fruitware\Insurance\Model\Casco\Type;
 interface TypeInterface
 {
     /**
+     * @return string
+     */
+    public function getName();
+
+    /**
      * @return boolean
      */
     public function canBeWithoutFranchise();
@@ -23,4 +28,21 @@ interface TypeInterface
      * @return null|string
      */
     public function getRangeFieldName();
+
+    /**
+     * @return null|string
+     */
+    public function getRangeUnits();
+
+    /**
+     * @param array $data
+     *
+     * @return TypeInterface
+     */
+    public function setData(array $data);
+
+    /**
+     * @return array
+     */
+    public function getData();
 }

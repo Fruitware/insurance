@@ -6,33 +6,25 @@ use Fruitware\Insurance\Model\Casco\ConfigInterface;
 
 class Config implements ConfigInterface
 {
+    protected $periods = array();
+
     /**
-     * @return array
+     * @param array $periods
+     *
+     * @return $this
      */
-    public function getPeriods()
+    public function setPeriods(array $periods)
     {
-        return array(3, 5, 7, 9, 12);
+        $this->periods = $periods;
+
+        return $this;
     }
 
     /**
      * @return array
      */
-//    public function getCategories()
-//    {
-//        return array(
-//            'autoturism' => array(
-//                'filter'    => array(
-//                    'field'     => 'price'
-//                )
-//            ),
-//            'truck' => array(
-//                'filter'    => array(
-//                    'field'     => 'weight'
-//                )
-//            ),
-//            'bus' => array(),
-//            'truck_trailer' => array(),
-//            'agriculture' => array(),
-//        );
-//    }
+    public function getPeriods()
+    {
+        return $this->periods;
+    }
 }

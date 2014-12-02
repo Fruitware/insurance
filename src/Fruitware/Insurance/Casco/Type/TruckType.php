@@ -4,7 +4,8 @@ namespace Fruitware\Insurance\Casco\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
-class AutoturismType implements TypeInterface {
+class TruckType implements TypeInterface
+{
     /**
      * @var array
      */
@@ -15,52 +16,49 @@ class AutoturismType implements TypeInterface {
      */
     public function getName()
     {
-        return 'autoturism';
+        return 'truck';
     }
 
     public function canBeWithoutFranchise() {
-        return true;
+        return false;
     }
 
     /**
      * @return float
      */
     public function getFranchisePercent() {
-        return 5.0;
+        return 10.0;
     }
 
     /**
      * @return null|string
      */
     public function getRangeFieldName() {
-        return 'price';
+        return 'weight';
     }
 
     /**
      * @return null|string
      */
     public function getRangeUnits() {
-        return '€';
+        return 'kg';
     }
 
     /**
      * @return array
      */
     public function getRanges() {
-        $prices = array( 25000, 75000, 100000, 150000 );
+        $weights = array(
+            array(0, 1999),
+            array(2000, 100000),
+        );
 
         $ranges = array();
-
-        $from = 0;
-        foreach ( $prices as $key => $price ) {
-            $to = $price;
-
+        foreach ( $weights as $key => $weight ) {
             $ranges[] = array(
-                'from' => $from,
-                'to'   => $to
+                'from' => $weight[0],
+                'to'   => $weight[1]
             );
-
-            $from = $to + 1;
         }
 
         return $ranges;

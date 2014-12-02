@@ -2,12 +2,20 @@
 
 namespace Fruitware\Insurance\Model\Casco;
 
-abstract class Casco
+use Fruitware\Insurance\Model\Casco\Type\Exception\UndefinedTypeException;
+use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
+
+abstract class Casco implements CascoInterface
 {
     /**
      * @var ConfigInterface
      */
     protected $config;
+
+    /**
+     * @var array
+     */
+    protected $types = array();
 
     /**
      * @param ConfigInterface $config
@@ -38,5 +46,46 @@ abstract class Casco
         }
 
         return $periods;
+    }
+
+    /**
+     * @param TypeInterface $type
+     *
+     * @return $this
+     */
+    public function setType(TypeInterface $type)
+    {
+        $this->types[$type->getName()] = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return TypeInterface[]
+     */
+    public function getTypes()
+    {
+        return $this->types;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return TypeInterface
+     *
+     * @throw UndefinedTypeException
+     */
+    public function getType($name)
+    {
+        /**
+         * @var TypeInterface $type
+         */
+        $type = $this->types[$name];
+
+        if (!$type instanceof TypeInterface) {
+            throw new UndefinedTypeException(sprintf('undefined type %s', $name));
+        }
+
+        return $type;
     }
 }
