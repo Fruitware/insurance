@@ -4,7 +4,7 @@ namespace Fruitware\Insurance\Casco\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
-class AutoturismType implements TypeInterface {
+class CarType implements TypeInterface {
     /**
      * @var array
      */
@@ -15,7 +15,7 @@ class AutoturismType implements TypeInterface {
      */
     public function getName()
     {
-        return 'autoturism';
+        return 'car';
     }
 
     public function canBeWithoutFranchise() {
