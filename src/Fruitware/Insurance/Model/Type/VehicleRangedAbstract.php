@@ -58,7 +58,7 @@ abstract class VehicleRangedAbstract extends VehicleAbstract implements VehicleR
 				$odds = '&ge;';
 				$limit = $this->min;
 			} elseif ( ! empty($this->max)) {
-				$odds = '>';
+				$odds = '<';
 				$limit = $this->max;
 			};
 
