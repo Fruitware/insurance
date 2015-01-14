@@ -93,7 +93,7 @@ class GreenCard extends InsuranceAbstract
 		if ( ! isset($per_day))
 			throw new Exception('No payments specified for this period');;
 
-		return (float)($per_day*$total_days);
+		return (float)($per_day);
 	}
 
 }
