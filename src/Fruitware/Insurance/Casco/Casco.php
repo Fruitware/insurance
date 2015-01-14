@@ -76,6 +76,27 @@ class Casco extends BaseCasco
                 var_export($unit, true)
             ) );
 
+        if (isset($unit)) {
+            foreach ($vehicle->getRanges() as $idx=>$range) {
+                // Hack to rearange range bounds (originaly future->past, logicaly past->future)
+                $start = (int)$range['from'];
+                $end = (int)$range['to'];
+
+                if ( (empty($start) || $start <= $quantity) && (empty($end) || $end >= $quantity) ) {
+                    $range_idx = $idx;
+                    break;
+                };
+            };
+        } else {
+            $range_idx = 0;
+        }
+
+        if ( ! isset($range_idx))
+            throw new Exception( sprintf(
+                'Quantity "%d" misses available ranges',
+                $quantity
+            ) );
+
         foreach ($this->getPeriods() as $idx=>$range) {
             // Hack to swap range bounds (originaly future->past, logicaly past->future)
             $start = (int)$range['to'];
@@ -94,38 +115,14 @@ class Casco extends BaseCasco
                 $year
             ) );
 
-        if (isset($unit)) {
-            foreach ($vehicle->getRanges() as $idx=>$range) {
-                // Hack to rearange range bounds (originaly future->past, logicaly past->future)
-                $start = (int)$range['from'];
-                $end = (int)$range['to'];
-
-                if ( (empty($start) || $start <= $quantity) && (empty($end) || $end >= $quantity) ) {
-                    $range_idx = $idx;
-                    break;
-                };
-            };
-        } else {
-            $range_idx = 0;
-        }
-
-        if ( ! isset($period_idx))
-            throw new Exception( sprintf(
-                'Quantity "%d" misses available ranges',
-                $quantity
-            ) );
-
-        /* @ToDo: Need to add francize calculation */
-        {
-            $francize_idx = 0;
-            if ($without_franchise && $vehicle->canBeWithoutFranchise()) {
-                if ($drivers_age < 23 || $driving_experience < 1)
-                    $francize_idx = 1;
-            }
-        }
+		$francize_idx = 0;
+		if ($without_franchise && $vehicle->canBeWithoutFranchise()) {
+			if ($drivers_age < 23 || $driving_experience < 1)
+				$francize_idx = 1;
+		}
 
         $data = $vehicle->getData();
-        $percent = @$data[$period_idx][$range_idx][$francize_idx];
+        $percent = @$data[$range_idx][$period_idx][$francize_idx];
 
         if ( ! isset($percent) || $percent==='')
             throw new Exception('Percent for specified qualifiers not found');
