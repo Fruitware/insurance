@@ -69,8 +69,11 @@ class GreenCard extends InsuranceAbstract
 
 		$date_diff = $from->diff($to);
 
-		$month = (int)$date_diff->m;
+		$years = (int)$date_diff->y;
+
+		$month = (int)$date_diff->m + ($years * 12);
 		$days = (int)$date_diff->d;
+
 		$total_days = (int)$date_diff->days;
 
 		$hash = sprintf('%02d%02d', $month, $days);
