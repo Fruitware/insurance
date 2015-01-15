@@ -115,11 +115,13 @@ class Casco extends BaseCasco
                 $year
             ) );
 
-		$francize_idx = 0;
-		if ($without_franchise && $vehicle->canBeWithoutFranchise()) {
-			if ($drivers_age < 23 || $driving_experience < 1)
-				$francize_idx = 1;
-		}
+		if ($vehicle->canBeWithoutFranchise()) {
+			$francize_idx = 1;
+			if ($without_franchise && $drivers_age > 23 && $driving_experience > 1)
+				$francize_idx = 0;
+
+		} else
+			$francize_idx = 0;
 
         $data = $vehicle->getData();
         $percent = @$data[$range_idx][$period_idx][$francize_idx];
