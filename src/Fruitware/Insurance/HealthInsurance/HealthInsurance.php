@@ -84,7 +84,7 @@ class HealthInsurance extends InsuranceAbstract
 
 		if (65 <= $age && $age <= 69)
 			$payment *= 1.75;
-		elseif (65 <= $age && $age <= 69)
+		elseif (70 <= $age && $age <= 74)
 			$payment *= 2.25;
 		elseif ($age <= 15)
 			$payment *= 0.8;
