@@ -8,7 +8,6 @@
     "casco",
     "green card"
   ],
-  "version": "2.0.0",
   "homepage": "https://github.com/Fruitware/insurance",
   "require": {
     "php": ">=7.0.0"
