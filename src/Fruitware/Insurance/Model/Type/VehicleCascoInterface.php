@@ -1,9 +1,8 @@
 <?php
 
-namespace Fruitware\Insurance\Model\Casco\Type;
+namespace Fruitware\Insurance\Model\Type;
 
-interface TypeInterface
-{
+interface VehicleCascoInterface extends VehicleInterface {
     /**
      * @return string
      */
@@ -36,10 +35,10 @@ interface TypeInterface
 
     /**
      * @param  array  $data
-     *
-     * @return TypeInterface
+     * @param  bool  $poor_data
+     * @return VehicleInterface
      */
-    public function setData(array $data);
+    public function setData(array $data, $poor_data = false);
 
     /**
      * @return array

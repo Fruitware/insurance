@@ -19,42 +19,50 @@ class BusType implements TypeInterface
         return 'bus';
     }
 
-    public function canBeWithoutFranchise() {
+    public function canBeWithoutFranchise()
+    {
         return false;
     }
 
     /**
      * @return float
      */
-    public function getFranchisePercent() {
+    public function getFranchisePercent()
+    {
         return 10.0;
     }
 
     /**
      * @return null|string
      */
-    public function getRangeFieldName() {
+    public function getRangeFieldName()
+    {
+        return;
     }
 
     /**
      * @return null|string
      */
-    public function getRangeUnits() {
+    public function getRangeUnits()
+    {
+        return;
     }
 
     /**
      * @return array
      */
-    public function getRanges() {
+    public function getRanges()
+    {
         return array('');
     }
 
     /**
-     * @param array $data
+     * @param  array  $data
      *
      * @return $this
      */
-    public function setData( array $data ) {
+    public function setData(array $data)
+    {
         $this->data = $data;
 
         return $this;
@@ -63,7 +71,8 @@ class BusType implements TypeInterface
     /**
      * @return array
      */
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 }

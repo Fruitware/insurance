@@ -5,7 +5,7 @@ namespace Fruitware\Insurance\Model\Casco;
 interface ConfigInterface
 {
     /**
-     * @param array $periods
+     * @param  array  $periods
      *
      * @return ConfigInterface
      */

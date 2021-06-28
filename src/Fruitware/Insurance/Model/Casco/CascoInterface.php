@@ -12,7 +12,7 @@ interface CascoInterface
     public function getPeriods();
 
     /**
-     * @param TypeInterface $type
+     * @param  TypeInterface  $type
      *
      * @return CascoInterface
      */
@@ -24,7 +24,7 @@ interface CascoInterface
     public function getTypes();
 
     /**
-     * @param string $name
+     * @param  string  $name
      *
      * @return TypeInterface
      *

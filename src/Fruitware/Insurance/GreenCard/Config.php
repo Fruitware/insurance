@@ -1,6 +1,6 @@
 <?php
 
-namespace Fruitware\Insurance\Casco;
+namespace Fruitware\Insurance\GreenCard;
 
 use Fruitware\Insurance\Model\Casco\ConfigInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fruitware\Insurance\Casco\Type;
+namespace Fruitware\Insurance\GreenCard\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 

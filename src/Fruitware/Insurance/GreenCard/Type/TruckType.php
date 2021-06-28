@@ -1,10 +1,10 @@
 <?php
 
-namespace Fruitware\Insurance\Casco\Type;
+namespace Fruitware\Insurance\GreenCard\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
-class CarType implements TypeInterface
+class TruckType implements TypeInterface
 {
     /**
      * @var array
@@ -16,12 +16,12 @@ class CarType implements TypeInterface
      */
     public function getName()
     {
-        return 'car';
+        return 'truck';
     }
 
     public function canBeWithoutFranchise()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -29,7 +29,7 @@ class CarType implements TypeInterface
      */
     public function getFranchisePercent()
     {
-        return 5.0;
+        return 10.0;
     }
 
     /**
@@ -37,7 +37,7 @@ class CarType implements TypeInterface
      */
     public function getRangeFieldName()
     {
-        return 'price';
+        return 'weight';
     }
 
     /**
@@ -45,7 +45,7 @@ class CarType implements TypeInterface
      */
     public function getRangeUnits()
     {
-        return '€';
+        return 'kg';
     }
 
     /**
@@ -53,20 +53,17 @@ class CarType implements TypeInterface
      */
     public function getRanges()
     {
-        $prices = array(25000, 75000, 100000, 150000);
+        $weights = array(
+          array(0, 1999),
+          array(2000, 100000),
+        );
 
         $ranges = array();
-
-        $from = 0;
-        foreach ( $prices as $price ) {
-            $to = $price;
-
+        foreach ( $weights as $weight ) {
             $ranges[] = array(
-              'from' => $from,
-              'to' => $to
+              'from' => $weight[0],
+              'to' => $weight[1]
             );
-
-            $from = $to + 1;
         }
 
         return $ranges;

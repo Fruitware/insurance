@@ -4,6 +4,8 @@
 namespace Fruitware\Insurance\Model\Casco\Type\Exception;
 
 
-class UndefinedTypeException extends \RuntimeException
+use RuntimeException;
+
+class UndefinedTypeException extends RuntimeException
 {
 }
