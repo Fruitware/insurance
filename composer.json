@@ -1,7 +1,7 @@
 {
   "name": "fruitware/insurance",
   "type": "library",
-  "license": "GPL v2",
+  "license": "LGPL-2.0-only",
   "description" : "Insurance library: CASCO, Green card",
   "keywords": [
     "insurance",
@@ -10,7 +10,7 @@
   ],
   "homepage": "https://github.com/Fruitware/insurance",
   "require": {
-    "php": ">=5.3.3"
+    "php": ">=7.0.0"
   },
   "autoload": {
     "psr-0": { "Fruitware\\Insurance\\": "src/" }
