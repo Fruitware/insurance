@@ -2,12 +2,14 @@
   "name": "fruitware/insurance",
   "type": "library",
   "license": "LGPL-2.0-only",
+  "composer-runtime-api": "^2.0",
   "description": "Insurance library: CASCO, Green card",
   "keywords": [
     "insurance",
     "casco",
     "green card"
   ],
+  "platform-check": false,
   "homepage": "https://github.com/Fruitware/insurance",
   "require": {
     "php": ">=7.0.0"
