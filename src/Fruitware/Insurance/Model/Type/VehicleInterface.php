@@ -15,12 +15,12 @@ interface VehicleInterface
     public function getDescription();
 
     /**
-     * @param array $data
-	 * @param bool $poor_data
+     * @param  array  $data
+     * @param  bool  $poor_data
      *
-     * @return TypeInterface
+     * @return VehicleInterface
      */
-    public function setData(array $data, $poor_data=false);
+    public function setData(array $data, $poor_data = false);
 
     /**
      * @return array

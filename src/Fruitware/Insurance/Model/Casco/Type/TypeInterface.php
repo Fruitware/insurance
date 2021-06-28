@@ -35,7 +35,7 @@ interface TypeInterface
     public function getRangeUnits();
 
     /**
-     * @param array $data
+     * @param  array  $data
      *
      * @return TypeInterface
      */

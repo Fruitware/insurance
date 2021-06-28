@@ -7,10 +7,10 @@ interface VehicleRangedInterface extends VehicleInterface
     /**
      * @return float[]
      */
-	public function getRange();
+    public function getRange();
 
     /**
-     * @return range
+     * @return string
      */
-	public function getRangeUnits();
+    public function getRangeUnits();
 }

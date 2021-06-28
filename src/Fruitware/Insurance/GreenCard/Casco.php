@@ -1,9 +1,9 @@
 <?php
 
-namespace Fruitware\Insurance\Casco;
+namespace Fruitware\Insurance\GreenCard;
 
-use Fruitware\Insurance\Casco\Type\CarType;
 use Fruitware\Insurance\Casco\Type\BusType;
+use Fruitware\Insurance\Casco\Type\CarType;
 use Fruitware\Insurance\Casco\Type\SemitrailerType;
 use Fruitware\Insurance\Casco\Type\TruckType;
 use Fruitware\Insurance\Model\Casco\Casco as BaseCasco;
@@ -16,10 +16,11 @@ class Casco extends BaseCasco
     protected $config;
 
     /**
-     * @param Config $config
+     * @param  Config  $config
      */
     public function __construct(Config $config)
     {
+        parent::__construct($config);
         $this->config = $config;
     }
 

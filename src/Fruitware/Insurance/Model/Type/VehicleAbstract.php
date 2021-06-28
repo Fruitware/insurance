@@ -2,9 +2,10 @@
 
 namespace Fruitware\Insurance\Model\Type;
 
-use \Fruitware\Insurance\Model\Type\Exception\UndefinedVehiclePropertyException;
+use Fruitware\Insurance\Model\Type\Exception\UndefinedVehiclePropertyException;
 
-abstract class VehicleAbstract implements VehicleInterface {
+abstract class VehicleAbstract implements VehicleInterface
+{
     /**
      * @var array
      */
@@ -15,81 +16,80 @@ abstract class VehicleAbstract implements VehicleInterface {
      */
     protected $name;
 
-	/**
-	 * @var string
-	 */
-	protected $alias;
+    /**
+     * @var string
+     */
+    protected $alias;
 
     /**
      * @var string
      */
     protected $description;
 
-	/**
-	 * @param array $properties
-	 *
-	 * @throw UndefinedVehiclePropertyException;
-	 **/
-	public function __construct(array $properties)
-	{
-		foreach ($properties as $property=>$value) {
-			if ( ! property_exists($this, $property)) {
-				throw new UndefinedVehiclePropertyException(sprintf('Cant set property "%s"', $property));
-			};
-			$this->$property = $value;
-		};
-	}
+    /**
+     * @param  array  $properties
+     *
+     * @throw UndefinedVehiclePropertyException;
+     **/
+    public function __construct(array $properties)
+    {
+        foreach ( $properties as $property => $value ) {
+            if (!property_exists($this, $property)) {
+                throw new UndefinedVehiclePropertyException(sprintf('Cant set property "%s"', $property));
+            }
+            $this->$property = $value;
+        }
+    }
 
     /**
      * @return string
      */
     public function getName()
-	{
-		return $this->name;
-	}
+    {
+        return $this->name;
+    }
 
     /**
      * @return string
      */
     public function getAlias()
-	{
-		return $this->alias;
-	}
+    {
+        return $this->alias;
+    }
 
     /**
      * @return string
      */
     public function getDescription()
-	{
-		return $this->description;
-	}
+    {
+        return $this->description;
+    }
 
     /**
-     * @param array $data
-	 * @param bool $reveal_data
-     *
+     * @param  array  $data
+     * @param  bool  $poor_data
      * @return VehicleInterface
      */
-    public function setData(array $data, $poor_data=true)
-	{
-		if ( ! $poor_data) {
-			$name = $this->getName();
-			$alias = $this->getAlias();
+    public function setData(array $data, $poor_data = true)
+    {
+        if (!$poor_data) {
+            $name = $this->getName();
+            $alias = $this->getAlias();
 
-			$data = (array)@$data[$name][$alias];
-		};
+            $data = (array) @$data[$name][$alias];
+        }
 
-		$this->data = $data;
+        $this->data = $data;
 
-		return $this;
-	}
+        return $this;
+    }
 
     /**
      * @return array
      */
     public function getData()
-	{
-		return $this->data;
-	}
+    {
+        return $this->data;
+    }
 
 }

@@ -2,6 +2,8 @@
 
 namespace Fruitware\Insurance\Model\Type\Exception;
 
-class UndefinedVehiclePropertyException extends \RuntimeException
+use RuntimeException;
+
+class UndefinedVehiclePropertyException extends RuntimeException
 {
 }

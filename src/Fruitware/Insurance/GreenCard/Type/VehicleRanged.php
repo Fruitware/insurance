@@ -2,6 +2,8 @@
 
 namespace Fruitware\Insurance\GreenCard\Type;
 
-use \Fruitware\Insurance\Model\Type\VehicleRangedAbstract;
+use Fruitware\Insurance\Model\Type\VehicleRangedAbstract;
 
-class VehicleRanged extends VehicleRangedAbstract {}
+class VehicleRanged extends VehicleRangedAbstract
+{
+}

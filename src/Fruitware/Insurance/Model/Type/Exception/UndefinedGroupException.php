@@ -2,6 +2,8 @@
 
 namespace Fruitware\Insurance\Model\Type\Exception;
 
-class UndefinedGroupException extends \RuntimeException
+use RuntimeException;
+
+class UndefinedGroupException extends RuntimeException
 {
 }

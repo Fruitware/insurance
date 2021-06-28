@@ -4,7 +4,8 @@ namespace Fruitware\Insurance\Casco\Type;
 
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
-class CarType implements TypeInterface {
+class CarType implements TypeInterface
+{
     /**
      * @var array
      */
@@ -18,46 +19,51 @@ class CarType implements TypeInterface {
         return 'car';
     }
 
-    public function canBeWithoutFranchise() {
+    public function canBeWithoutFranchise()
+    {
         return true;
     }
 
     /**
      * @return float
      */
-    public function getFranchisePercent() {
+    public function getFranchisePercent()
+    {
         return 5.0;
     }
 
     /**
      * @return null|string
      */
-    public function getRangeFieldName() {
+    public function getRangeFieldName()
+    {
         return 'price';
     }
 
     /**
      * @return null|string
      */
-    public function getRangeUnits() {
+    public function getRangeUnits()
+    {
         return '€';
     }
 
     /**
      * @return array
      */
-    public function getRanges() {
-        $prices = array( 25000, 75000, 100000, 150000 );
+    public function getRanges()
+    {
+        $prices = array(25000, 75000, 100000, 150000);
 
         $ranges = array();
 
         $from = 0;
-        foreach ( $prices as $key => $price ) {
+        foreach ( $prices as $price ) {
             $to = $price;
 
             $ranges[] = array(
-                'from' => $from,
-                'to'   => $to
+              'from' => $from,
+              'to' => $to
             );
 
             $from = $to + 1;
@@ -67,11 +73,12 @@ class CarType implements TypeInterface {
     }
 
     /**
-     * @param array $data
+     * @param  array  $data
      *
      * @return $this
      */
-    public function setData( array $data ) {
+    public function setData(array $data)
+    {
         $this->data = $data;
 
         return $this;
@@ -80,7 +87,8 @@ class CarType implements TypeInterface {
     /**
      * @return array
      */
-    public function getData() {
+    public function getData()
+    {
         return $this->data;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Fruitware\Insurance\Model\Casco;
 
+use DateTime;
 use Fruitware\Insurance\Model\Casco\Type\Exception\UndefinedTypeException;
 use Fruitware\Insurance\Model\Casco\Type\TypeInterface;
 
@@ -18,7 +19,7 @@ abstract class Casco implements CascoInterface
     protected $types = array();
 
     /**
-     * @param ConfigInterface $config
+     * @param  ConfigInterface  $config
      */
     public function __construct(ConfigInterface $config)
     {
@@ -32,14 +33,14 @@ abstract class Casco implements CascoInterface
     {
         $periods = array();
 
-        $from = new \DateTime();
+        $from = new DateTime();
 
-        foreach ($this->config->getPeriods() as $years) {
-            $to = new \DateTime();
+        foreach ( $this->config->getPeriods() as $years ) {
+            $to = new DateTime();
 
             $periods[] = array(
-                'from' => $from->format('Y'),
-                'to'   => $to->modify(sprintf('-%s years', $years))->format('Y')
+              'from' => $from->format('Y'),
+              'to' => $to->modify(sprintf('-%s years', $years))->format('Y')
             );
 
             $from = clone $to->modify('-1 year');
@@ -49,7 +50,7 @@ abstract class Casco implements CascoInterface
     }
 
     /**
-     * @param TypeInterface $type
+     * @param  TypeInterface  $type
      *
      * @return $this
      */
@@ -69,7 +70,7 @@ abstract class Casco implements CascoInterface
     }
 
     /**
-     * @param string $name
+     * @param  string  $name
      *
      * @return TypeInterface
      *

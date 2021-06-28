@@ -10,7 +10,13 @@ class Config implements ConfigInterface
     protected $options = array();
 
     /**
-     * @param array $periods
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }    /**
+     * @param  array  $periods
      *
      * @return $this
      */
@@ -22,6 +28,15 @@ class Config implements ConfigInterface
     }
 
     /**
+     * @param  array  $options
+     *
+     * @return $this
+     **/
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+        return $this;
+    }    /**
      * @return array
      */
     public function getPeriods()
@@ -29,21 +44,7 @@ class Config implements ConfigInterface
         return $this->periods;
     }
 
-    /**
-     * @param array $options
-     *
-     * @return $this
-     **/
-    public function setOptions(array $options)
-    {
-        $this->options = $options;
-    }
 
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
+
+
 }

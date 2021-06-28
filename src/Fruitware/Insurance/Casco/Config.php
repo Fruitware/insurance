@@ -9,7 +9,7 @@ class Config implements ConfigInterface
     protected $periods = array();
 
     /**
-     * @param array $periods
+     * @param  array  $periods
      *
      * @return $this
      */

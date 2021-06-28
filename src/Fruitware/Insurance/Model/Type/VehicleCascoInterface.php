@@ -2,8 +2,7 @@
 
 namespace Fruitware\Insurance\Model\Type;
 
-interface VehicleCascoInterface implements VehicleInterface
-{
+interface VehicleCascoInterface extends VehicleInterface {
     /**
      * @return string
      */
@@ -35,11 +34,11 @@ interface VehicleCascoInterface implements VehicleInterface
     public function getRangeUnits();
 
     /**
-     * @param array $data
-     *
-     * @return TypeInterface
+     * @param  array  $data
+     * @param  bool  $poor_data
+     * @return VehicleInterface
      */
-    public function setData(array $data);
+    public function setData(array $data, $poor_data = false);
 
     /**
      * @return array
